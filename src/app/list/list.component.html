@@ -1,4 +1,22 @@
-<div class="list-container">
-  <h2>Providers</h2>
-
+<div>
+  <div class="list-container">
+    <h2>Providers</h2>
+    <div *ngFor="let provider of providers; let i = index">
+      <li>
+        <p>{{ provider.name }}</p>
+        <p>{{ provider.address }}</p>
+        <p>{{ provider.phone }}</p>
+        <button (click)="saveFavorite(provider)">Favorite</button>
+      </li>
+    </div>
+  </div>
+  <div class="list-container">
+    <h2>Favorites</h2>
+    <div *ngFor="let favorite of selectedProviders; let i = index">
+      <p>{{ favorite.name }}</p>
+      <p>{{ favorite.address }}</p>
+      <p>{{ favorite.phone }}</p>
+      <button (click)="removeFavorite(favorite)">Remove</button>
+    </div>
+  </div>
 </div>
