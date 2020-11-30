@@ -52,7 +52,7 @@ export class ListComponent implements OnInit {
     this.selectedProviders = JSON.parse(localStorage.getItem('favorites'));
   }
 
-  saveFavorite(provider) {
+  saveFavorite(provider:any):void {
     // find the index of element based on the provider obj that I get from the template
     const index = this.providers.indexOf(provider);
     // check if the index is valid
@@ -67,14 +67,15 @@ export class ListComponent implements OnInit {
         phone: provider.phone
       });
       // update local storage
-      localStorage.setItem('favorites', JSON.stringify(this.selectedProviders))
+      localStorage.setItem('favorites', JSON.stringify(this.selectedProviders));
+      console.log(this.selectedProviders.length);
       // remove the item from the general provider's list and update local storage
       this.providers.splice(index, 1);
-      localStorage.setItem('providers', JSON.stringify(this.providers))
+      localStorage.setItem('providers', JSON.stringify(this.providers));
     }
   }
 
-  removeFavorite(favorite) {
+  removeFavorite(favorite:any):void {
     // find the correct index
     const index = this.selectedProviders.indexOf(favorite);
     // if the number of index is valid then run logic
@@ -89,10 +90,10 @@ export class ListComponent implements OnInit {
         phone: favorite.phone
       });
       // update localStorage
-      localStorage.setItem('providers', JSON.stringify(this.providers))
+      localStorage.setItem('providers', JSON.stringify(this.providers));
       // remove item from the "favorites list" and update localStorage
       this.selectedProviders.splice(index, 1);
-      localStorage.setItem('favorites', JSON.stringify(this.selectedProviders))
+      localStorage.setItem('favorites', JSON.stringify(this.selectedProviders));
     }
   }
 }

@@ -1,22 +1,29 @@
-<div>
+<div class="main-container">
   <div class="list-container">
     <h2>Providers</h2>
-    <div *ngFor="let provider of providers; let i = index">
-      <li>
-        <p>{{ provider.name }}</p>
-        <p>{{ provider.address }}</p>
-        <p>{{ provider.phone }}</p>
-        <button (click)="saveFavorite(provider)">Favorite</button>
-      </li>
+    <div
+      class="providers-container"
+      *ngFor="let provider of providers; let i = index"
+    >
+      <p>{{ provider.name }}</p>
+      <p>{{ provider.address }}</p>
+      <p>{{ provider.phone }}</p>
+      <button (click)="saveFavorite(provider)">Add To Favorite &#11088;</button>
     </div>
   </div>
   <div class="list-container">
     <h2>Favorites</h2>
-    <div *ngFor="let favorite of selectedProviders; let i = index">
+    <div *ngIf="!selectedProviders?.length > 0">
+      <h3>No favorites selected</h3>
+    </div>
+    <div
+      class="favorites-container"
+      *ngFor="let favorite of selectedProviders; let i = index"
+    >
+      <button (click)="removeFavorite(favorite)">X</button>
       <p>{{ favorite.name }}</p>
       <p>{{ favorite.address }}</p>
       <p>{{ favorite.phone }}</p>
-      <button (click)="removeFavorite(favorite)">Remove</button>
     </div>
   </div>
 </div>
