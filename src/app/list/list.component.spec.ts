@@ -37,5 +37,22 @@ describe('ListComponent', () => {
     it('should have no initial length', () => {
       expect(component.selectedProviders.length).toEqual(0);
     });
+    // it('should add one provider', () => {
+    //   let provider = {
+    //     id: 1,
+    //     name: 'John',
+    //     address: '123 Greenway Blvd',
+    //     phone: '8991234321'
+    //   }
+    //   component.saveFavorite(provider);
+    //   expect(component.selectedProviders.length).toEqual(1);
+    // })
   });
+  // describe('setting localStorage', () => {
+  //   let providers = JSON.parse(localStorage.getItem('providers'));
+  //   // component.ngOnInit()
+  //   it('should add providers, to local storage', () => {
+  //     expect(providers).toEqual(component.unselectedProviders)
+  //   })
+  // })  
 });

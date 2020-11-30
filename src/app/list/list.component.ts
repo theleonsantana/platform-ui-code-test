@@ -68,7 +68,6 @@ export class ListComponent implements OnInit {
       });
       // update local storage
       localStorage.setItem('favorites', JSON.stringify(this.selectedProviders));
-      console.log(this.selectedProviders.length);
       // remove the item from the general provider's list and update local storage
       this.providers.splice(index, 1);
       localStorage.setItem('providers', JSON.stringify(this.providers));
